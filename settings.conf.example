@@ -1,0 +1,19 @@
+# This file contains all necessary settings for web-watch
+
+# Email to send failure messages to
+MAILTO="youremail@yourdomain.tld"
+
+# Various paths
+WORKINGDIR="$(pwd)"
+LOGPATH="$WORKINGDIR/LOGS/$(basename $0).log"
+
+# Gowitness cmd
+GOWITNESSCMD="/blah/gowitness"
+
+# LLM/VLM API settings
+VLMAPIURL="https://api.example.com"
+VLMAPIKEY="thisisanexamplekey"
+### better practice is to store the key in a secrets vault
+#VLMAPIKEY="$(vault-cmd-to-extract-key)"g
+VLMDEFAULTMODEL="gpt-4o"
+
