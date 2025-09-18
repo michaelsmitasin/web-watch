@@ -2,7 +2,7 @@
 
 ### Load variables from settings.conf
 
-SETTINGSFILE="settings.conf"
+SETTINGSFILE="./settings.conf"
 . $SETTINGSFILE
 
 ### FUNCTIONS
@@ -10,6 +10,7 @@ SETTINGSFILE="settings.conf"
 USAGE(){
 	echo "$0 <option>"
 	echo ""
+	echo "	-n		NO-OP, just dump the query to stdout"
 	echo "	-m <model_name>		specify model to use"
 	echo "	-S <screenshot_path>	specify screenshot path"
 	echo "	-P <prompt>		specify prompt"
@@ -61,9 +62,10 @@ while [ $# -gt 0 ]
 do
     unset OPTIND
     unset OPTARG
-    while getopts lm:S:P: OPTIONS
+    while getopts nlm:S:P: OPTIONS
     do
     case $OPTIONS in
+            n) NOOP="1";;
             m) MODEL="$OPTARG";;
             S) SCREENSHOT="$OPTARG";;
             P) PROMPTFILE="$OPTARG";;
@@ -96,5 +98,11 @@ CHECKDEPENDENCIES
 
 
 ### EXECUTION
+
+if [ "$NOOP" -eq "1" ]
+then
+	echo "NOOP"
+	exit 0
+fi
 
 ANALYZE
