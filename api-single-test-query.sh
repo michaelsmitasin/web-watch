@@ -1,5 +1,7 @@
 #! /bin/sh
 
+### This is a simple script to test the API call to the LLM system
+
 ### Load variables from settings.conf
 
 SETTINGSFILE="./settings.conf"
@@ -11,12 +13,12 @@ USAGE(){
 	echo "$0 <option>"
 	echo ""
 	echo "	-v		verbose output"
-	echo "	-n		NO-OP, just dump the query to stdout"
+	echo "	-n		NO-OP, just dump the data JSON for the query to stdout"
 	echo "	-m <model_name>		specify model to use"
 	echo "	-S <screenshot_path>	specify screenshot path"
 	echo "	-P <prompt>		specify prompt"
 	echo ""
-	echo "Example: $0 -m gpt-4o -S http---www.example.com.jpeg -P prompt.conf"
+	echo "Example: $0 -m gpt-4o -S TESTS/https---www.example.com.jpeg -P prompt.conf"
 
 	exit 1
 }
@@ -118,15 +120,7 @@ ANALYZE
 
 if [ "$NOOP" -eq "1" ]
 then
-	echo "NOOP"
-	echo ""
-	echo "Model: $MODEL"
-	echo ""
-	echo "Prompt: $PROMPT"
-	echo ""
-	echo "Screenshot: $SCREENSHOT"
-	echo ""
-	echo "$DATA" | jq -r .
+	echo "$DATA" 
 	exit 0
 fi
 
