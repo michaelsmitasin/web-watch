@@ -24,7 +24,7 @@ USAGE(){
 }
 
 CHECKDEPENDENCIES(){
-	DEPENDENCIES="base64 basename jq curl tr"
+	DEPENDENCIES="$(cat dependencies_list)"
 	for DEPENDENCY in $DEPENDENCIES
 	do
 		if [ -z $(which $DEPENDENCY) ]
