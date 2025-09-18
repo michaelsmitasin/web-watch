@@ -4,5 +4,6 @@ web-watch is a tool for uploading website screenshots to a Vision Language model
 
 Installation:
 
-1) Ensure you have all the dependencies listed in dependencies_list (the scripts will fail and tell you what you're missing if not).
-2) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, and VLMAPIKEY.
+1) git clone git@github.com:michaelsmitasin/web-watch.git
+2) Ensure you have all the dependencies listed in dependencies_list (the scripts will fail and tell you what you're missing if not).
+3) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, and VLMAPIKEY.
