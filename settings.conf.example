@@ -11,8 +11,12 @@ VERBOSE="0"
 WORKINGDIR="$(pwd)"
 LOGPATH="$WORKINGDIR/LOGS/$(basename $0).log"
 
-# Gowitness cmd
+# Gowitness settings
 GOWITNESSCMD="/blah/gowitness"
+GOWITNESSXWINDOW="1024"
+GOWITNESSYWINDOW="1024"
+GOWITNESSUSERAGENT="security@example.com Defacement Monitoring"
+GOWITNESSTIMEOUT="30"
 
 # LLM/VLM API settings
 VLMAPIURL="https://api.example.com"
