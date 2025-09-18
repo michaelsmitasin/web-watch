@@ -32,6 +32,13 @@ CHECKDEPENDENCIES(){
 	done
 }
 
+DOCURL(){
+	curl -s -X POST $VLMAPIURL/v1/chat/completions  \
+  	-H "Content-Type: application/json" \
+  	-H "Authorization: Bearer $VLMAPIKEY" \
+  	-d @singlequerydata.json  | tr -d '\n' | jq -r .  | sed 's/\\"//g'
+}
+
 ANALYZE(){
 	IMAGEBASE64="$(base64 $SCREENSHOT | tr -d '[:cntrl:]' )"
 	FILENAME=$(basename $SCREENSHOT)
@@ -42,11 +49,11 @@ ANALYZE(){
 
 	# write DATA to JSON, later POSTs to API
 	echo "$DATA" > singlequerydata.json
-	
-	curl -s -X POST $VLMAPIURL/v1/chat/completions  \
-  	-H "Content-Type: application/json" \
-  	-H "Authorization: Bearer $VLMAPIKEY" \
-  	-d @singlequerydata.json  | tr -d '\n' | jq -r .  | sed 's/\\"//g'
+
+	if [ "$NOOP" -eq "0" ]
+	then
+		DOCURL	
+	fi
 }
 
 ### PRE-EXECUTION
@@ -98,11 +105,19 @@ CHECKDEPENDENCIES
 
 
 ### EXECUTION
+ANALYZE
 
 if [ "$NOOP" -eq "1" ]
 then
 	echo "NOOP"
+	echo ""
+	echo "Model: $MODEL"
+	echo ""
+	echo "Prompt: $PROMPT"
+	echo ""
+	echo "Screenshot: $SCREENSHOT"
+	echo ""
+	echo "$DATA" | jq -r .
 	exit 0
 fi
 
-ANALYZE
