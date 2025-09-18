@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/bash
 
 ### This is a simple script to test gowitness
 
