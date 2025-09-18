@@ -12,3 +12,14 @@ Setup and Installation:
 5) git clone git@github.com:michaelsmitasin/web-watch.git
 6) Ensure you have all the dependencies listed in dependencies_list (the scripts will fail and tell you what you're missing if not).
 7) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, and VLMAPIKEY.
+
+# Example Test Usage
+
+1) Fetch screenshots from URLs in `testurls` file and store in `~/web-watch` directory:
+```
+./gowitness-test.sh -u testurls -S ~/web-watch/ -v
+```
+2) Analyze screenshots in ~/web-watch
+```
+./api-single-test-query.sh -m gpt-4o -S https---www.smitasin.com-443.jpeg -P prompt.conf -v
+```
