@@ -10,6 +10,7 @@ SETTINGSFILE="./settings.conf"
 USAGE(){
 	echo "$0 <option>"
 	echo ""
+	echo "	-v		verbose output"
 	echo "	-n		NO-OP, just dump the query to stdout"
 	echo "	-m <model_name>		specify model to use"
 	echo "	-S <screenshot_path>	specify screenshot path"
@@ -33,10 +34,10 @@ CHECKDEPENDENCIES(){
 }
 
 DOCURL(){
-	curl -s -X POST $VLMAPIURL/v1/chat/completions  \
+	RESULTS=$(curl -s -X POST $VLMAPIURL/v1/chat/completions  \
   	-H "Content-Type: application/json" \
   	-H "Authorization: Bearer $VLMAPIKEY" \
-  	-d @singlequerydata.json  | tr -d '\n' | jq -r .  | sed 's/\\"//g'
+  	-d @singlequerydata.json  | tr -d '\n' | jq -r .  | sed 's/\\"//g')
 }
 
 ANALYZE(){
@@ -54,6 +55,13 @@ ANALYZE(){
 	then
 		DOCURL	
 	fi
+
+	if [ "$VERBOSE" -eq "1" ]
+	then
+		echo "$RESULTS"
+	else
+		echo "$RESULTS" | jq -r .choices[].message.content
+	fi
 }
 
 ### PRE-EXECUTION
@@ -69,9 +77,10 @@ while [ $# -gt 0 ]
 do
     unset OPTIND
     unset OPTARG
-    while getopts nlm:S:P: OPTIONS
+    while getopts vnlm:S:P: OPTIONS
     do
     case $OPTIONS in
+            v) VERBOSE="1";;
             n) NOOP="1";;
             m) MODEL="$OPTARG";;
             S) SCREENSHOT="$OPTARG";;
