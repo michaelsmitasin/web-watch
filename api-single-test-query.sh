@@ -36,7 +36,7 @@ CHECKDEPENDENCIES(){
 }
 
 DOCURL(){
-	RESULTS=$(curl -s -X POST $VLMAPIURL/v1/chat/completions  \
+	RESULTS=$(curl -s -X POST $VLMAPIURL \
   	-H "Content-Type: application/json" \
   	-H "Authorization: Bearer $VLMAPIKEY" \
   	-d @singlequerydata.json  | tr -d '\n' | jq -r .  | sed 's/\\"//g')
