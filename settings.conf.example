@@ -10,6 +10,8 @@ VERBOSE="0"
 # Various paths
 WORKINGDIR="$(pwd)"
 LOGPATH="$WORKINGDIR/LOGS/$(basename $0).log"
+FETCHSCRIPT="$WORKINGDIR/fetch-screenshots.sh"
+ANALYZESCRIPT="$WORKINGDIR/analyze-screenshot.sh"
 
 # Gowitness settings
 GOWITNESSCMD="/blah/gowitness"
