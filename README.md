@@ -23,18 +23,19 @@ web-watch is a tool for analyzing websites with a Vision Language Model (VLM) to
 # Example Test Usage
 If you're encountering issues with `web-watch.sh`, you can try running the individual scripts it calls separately:
 
-1) Fetch screenshots from URLs in `testurls` file and store in `~/web-watch/SCREENSHOTS` directory:
+1) Fetch screenshots from URLs in `testurls` file and store in `web-watch/SCREENSHOTS` directory:
 ```
-./fetch-screenshots.sh -u testurls -S ~/web-watch/SCREENSHOTS -v
+./fetch-screenshots.sh -u testurls -S web-watch/SCREENSHOTS -v
 ```
-2) Analyze screenshots in ~/web-watch
+2) Analyze one screenshot in web-watch/SCREENSHOTS
 ```
-./analyze-screenshot.sh -m gpt-4o -S SCREENSHOTS/https---www.smitasin.com-443.jpeg -P prompt.conf -v
+./analyze-screenshot.sh -m gpt-4o -S SCREENSHOTS/2025-09-19T21:30_ikFd4TZB/https---www.smitasin.com-443.jpeg -P prompt.conf -v
 ```
 3) Generate email reports
 ```
 ./gen-report.sh -s "HIJACKED|VULNERABLE" -r "SCREENSHOTS/2025-09-19T21:30_ikFd4TZB" -R RESULTS/2025-09-19T21\:30_ikFd4TZB.csv -t security@example.com
 ```
 
+---
 
 This research used the CBorg AI platform and resources provided by the IT Division at the Lawrence Berkeley National Laboratory (Supported by the Director, Office of Science, Office of Basic Energy Sciences, of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231)
