@@ -3,6 +3,7 @@
 ### Orchestration script that calls other scripts
 
 SESSIONID="$(date -Iminutes | cut -d"+" -f1)_$(head /dev/random | LC_ALL=C tr -dc A-Za-z0-9 | head -c8)"
+VERBOSE=""
 
 ### Load variables from settings.conf
 
@@ -38,7 +39,13 @@ CHECKDEPENDENCIES(){
 }
 
 FETCHSCREENSHOTS(){
-	$FETCHSCRIPT $VERBOSE -u $URLLIST -S $SCREENSHOTDIR
+	if [ "$VERBOSE" -eq "0" ]
+	then
+		$FETCHSCRIPT -u $URLLIST -S $SCREENSHOTDIR
+	elif [ "$VERBOSE" -eq "1" ]
+	then
+		$FETCHSCRIPT -v -u $URLLIST -S $SCREENSHOTDIR
+	fi
 }
 
 BUILDSCREENSHOTLIST(){
@@ -50,7 +57,7 @@ ANALYZE(){
 	mkdir -p "$WORKINGDIR/RESULTS/"
 	for SCREENSHOT in $SCLIST
 	do
-		if [ $VERBOSE ]
+		if [ "$VERBOSE" -eq "1"  ]
 		then
 			echo "Analyzing: $SCREENSHOT"
 		fi
@@ -74,7 +81,7 @@ do
     while getopts vm:S:u:p: OPTIONS
     do
     case $OPTIONS in
-            v) VERBOSE="-v";;
+            v) VERBOSE="1";;
             m) MODEL="$OPTARG";;
             S) SCREENSHOTDIR="$OPTARG";;
             u) URLLIST="$OPTARG";;
