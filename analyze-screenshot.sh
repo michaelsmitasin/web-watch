@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-### This is a simple script to test the API call to the LLM system
+### This is a wrapper script for curl to an LLM/VLM API for screenshot analysis
 
 ### Load variables from settings.conf
 
