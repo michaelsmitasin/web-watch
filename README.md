@@ -5,7 +5,7 @@ web-watch is a tool for analyzing websites with a Vision Language Model (VLM) to
 # Setup and Installation
 (These assume an Ubuntu 24 OS)
 
-1) Install all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing if not).
+1) Install all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing).
 2) Get a Vision Language Model (VLM) API key. For example, you could purchase credits for the OpenAI API: https://openai.com/api/
 3) git clone git@github.com:michaelsmitasin/web-watch.git
 4) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, VLMAPIKEY, FROMADDR, RCPTS. And MAILTO if you want to get error emails.
