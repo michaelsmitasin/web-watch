@@ -12,6 +12,8 @@ web-watch is a tool for uploading website screenshots to a Vision Language model
 5) git clone git@github.com:michaelsmitasin/web-watch.git
 6) Ensure you have all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing if not).
 7) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, and VLMAPIKEY.
+8) Populate your list of websites/URLs that you want to analyze (in the below examples, we save them to the file named `testurls`)
+9) Adjust the prompt to suit your needs.
 
 # Example Run
 
