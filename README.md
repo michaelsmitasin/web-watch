@@ -5,7 +5,7 @@ web-watch is a tool for analyzing websites with a Vision Language Model (VLM) to
 # Setup and Installation
 (These assume an Ubuntu 24 OS)
 
-1) Install all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing). Note: I used a vanilla Ubuntu 24 AMI on AWS, and had to do the following:
+1) Install all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing). For example, I used a vanilla Ubuntu 24 AMI on AWS, and had to do the following (there are almost certainly better ways of doing this):
 ```
 sudo bash
 
@@ -13,6 +13,10 @@ add-apt-repository ppa:longsleep/golang-backports
 apt-get update
 apt-get upgrade
 apt-get install golang-go
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+apt --fix-broken install
+apt-get install sendmail
 
 exit
 
