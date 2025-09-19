@@ -19,7 +19,7 @@ GOWITNESSUSERAGENT="security@example.com Defacement Monitoring"
 GOWITNESSTIMEOUT="30"
 
 # LLM/VLM API settings
-VLMAPIURL="https://api.example.com"
+VLMAPIURL="https://api.example.com/v1/chat/completions"
 VLMAPIKEY="thisisanexamplekey"
 ### better practice is to store the key in a secrets vault
 #VLMAPIKEY="$(vault-cmd-to-extract-key)"
