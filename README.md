@@ -1,6 +1,6 @@
 # web-watch
 
-web-watch is a tool for uploading website screenshots to a Vision Language model for analysis to determine whether they are hijacked or vulnerable to subdomain hijacking.
+web-watch is a tool for analyzing websites with a Vision Language Model (VLM) to determine whether they are hijacked, vulnerable to subdomain hijacking, or broken in some other way (for example: under construction).
 
 # Setup and Installation
 (These assume an Ubuntu 24 OS)
