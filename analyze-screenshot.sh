@@ -24,7 +24,7 @@ USAGE(){
 }
 
 CHECKDEPENDENCIES(){
-	DEPENDENCIES="$(cat dependencies_list)"
+	DEPENDENCIES="$(cat dependency_list)"
 	for DEPENDENCY in $DEPENDENCIES
 	do
 		if [ -z $(which $DEPENDENCY) ]
