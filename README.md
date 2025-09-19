@@ -13,6 +13,12 @@ Setup and Installation:
 6) Ensure you have all the dependencies listed in dependencies_list (the scripts will fail and tell you what you're missing if not).
 7) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, and VLMAPIKEY.
 
+# Example Run
+
+1) This calls fetch-screenshots.sh and analyze-screenshots.sh
+
+./web-watch.sh -u testurls -p prompt.conf
+
 # Example Test Usage
 
 1) Fetch screenshots from URLs in `testurls` file and store in `~/web-watch/SCREENSHOTS` directory:
