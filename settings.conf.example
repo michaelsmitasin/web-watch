@@ -27,3 +27,8 @@ VLMAPIKEY="thisisanexamplekey"
 #VLMAPIKEY="$(vault-cmd-to-extract-key)"
 VLMDEFAULTMODEL="gpt-4o"
 
+# email reporting settings for gen-report.sh
+FROMADDR="webwatch@example.com"
+RCPTS="webwatchrcpt@example.com"
+STATUSES="OK|HIJACKED|VULNERABLE|BROKEN|REVIEW"
+COUNTPERMAIL="20"
