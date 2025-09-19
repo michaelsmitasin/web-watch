@@ -3,3 +3,5 @@ basename
 jq
 curl
 tr
+go
+google-chrome
