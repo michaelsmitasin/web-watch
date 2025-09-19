@@ -2,7 +2,7 @@
 
 web-watch is a tool for uploading website screenshots to a Vision Language model for analysis to determine whether they are hijacked or vulnerable to subdomain hijacking.
 
-Setup and Installation:
+# Setup and Installation
 (These assume an Ubuntu 24 OS)
 
 1) Install go: https://go.dev/doc/install
