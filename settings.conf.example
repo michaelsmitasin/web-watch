@@ -12,6 +12,7 @@ WORKINGDIR="$(pwd)"
 LOGPATH="$WORKINGDIR/LOGS/$(basename $0).log"
 FETCHSCRIPT="$WORKINGDIR/fetch-screenshots.sh"
 ANALYZESCRIPT="$WORKINGDIR/analyze-screenshot.sh"
+REPORTSCRIPT="$WORKINGDIR/gen-report.sh"
 
 # Gowitness settings
 GOWITNESSCMD="/blah/gowitness"
