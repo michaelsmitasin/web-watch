@@ -18,7 +18,7 @@ USAGE(){
 	echo "	-p <promptfile>		prompt file to use"
 	echo "	-S <screenshots_dir>	specify path of screenshots"
 	echo ""
-	echo "Example: $0 -u testurls -S TESTSCREENSHOTS"
+	echo "Example: $0 -u testurls -S SCREENSHOTS -p prompt.conf"
 
 	exit 1
 }
