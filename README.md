@@ -15,9 +15,9 @@ Setup and Installation:
 
 # Example Test Usage
 
-1) Fetch screenshots from URLs in `testurls` file and store in `~/web-watch` directory:
+1) Fetch screenshots from URLs in `testurls` file and store in `~/web-watch/SCREENSHOTS` directory:
 ```
-./gowitness-test.sh -u testurls -S ~/web-watch/ -v
+./gowitness-test.sh -u testurls -S ~/web-watch/SCREENSHOTS -v
 ```
 2) Analyze screenshots in ~/web-watch
 ```
