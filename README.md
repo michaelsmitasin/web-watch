@@ -5,6 +5,8 @@ web-watch is a tool for analyzing websites with a Vision Language Model (VLM) to
 # Setup and Installation
 (These assume an Ubuntu 24 OS)
 
+Watch an install demo: https://www.youtube.com/watch?v=FCEJn_16D20
+
 1) Install all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing). For example, I used a vanilla Ubuntu 24 AMI on AWS, and had to do the following (there are almost certainly better ways of doing this):
 ```
 sudo bash
