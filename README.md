@@ -33,3 +33,5 @@ web-watch is a tool for analyzing websites with a Vision Language Model (VLM) to
 ```
 ./analyze-screenshot.sh -m gpt-4o -S SCREENSHOTS/https---www.smitasin.com-443.jpeg -P prompt.conf -v
 ```
+
+This research used the CBorg AI platform and resources provided by the IT Division at the Lawrence Berkeley National Laboratory (Supported by the Director, Office of Science, Office of Basic Energy Sciences, of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231)
