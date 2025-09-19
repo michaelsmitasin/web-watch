@@ -28,7 +28,7 @@ USAGE(){
 	echo " -R <resultfile>	Result file"
 	echo " -t <email>	email address to send report to"
 	echo ""
-	echo "Ex: $0 -s \"HIJACKED|VULNERABLE\" -r \"SCREENSHOTS/2025-04-17T09:00\" -R RESULTS/2025-04-23T12:25-qVpXpMda -t security@example.com"
+	echo "Ex: $0 -s \"HIJACKED|VULNERABLE\" -r \"SCREENSHOTS/2025-09-19T21:30_ikFd4TZB\" -R RESULTS/2025-09-19T21\:30_ikFd4TZB.csv -t security@example.com"
 	exit 1
 }
 
