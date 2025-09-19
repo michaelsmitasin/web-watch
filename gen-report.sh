@@ -1,17 +1,11 @@
 #! /usr/bin/bash
 
+### This generates email reports from the screenshots director and the results csv file
+
 ### Load variables from settings.conf
 
 SETTINGSFILE="./settings.conf"
 . $SETTINGSFILE
-
-COUNTPERMAIL="20"
-### default recipient
-FROMADDR="webwatch@smitasin.com"
-RCPTS="webwatchrcpt@smitasin.com"
-
-### DEFAULT STATUSES
-STATUSES="OK|HIJACKED|VULNERABLE|BROKEN|REVIEW"
 
 ### FUNCTIONS
 
