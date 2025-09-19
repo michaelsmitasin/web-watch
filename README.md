@@ -5,15 +5,12 @@ web-watch is a tool for analyzing websites with a Vision Language Model (VLM) to
 # Setup and Installation
 (These assume an Ubuntu 24 OS)
 
-1) Install go: https://go.dev/doc/install
-2) Install google-chrome
-3) Install gowitness: https://github.com/sensepost/gowitness
-4) Get a Vision Language Model (VLM) API key. For example, you could purchase credits for the OpenAI API: https://openai.com/api/
-5) git clone git@github.com:michaelsmitasin/web-watch.git
-6) Ensure you have all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing if not).
-7) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, and VLMAPIKEY.
-8) Populate your list of websites/URLs that you want to analyze (in the below examples, we save them to the file named `testurls`)
-9) Adjust the prompt to suit your needs.
+1) Install all the dependencies listed in dependency_list (the scripts will fail and tell you what you're missing if not).
+2) Get a Vision Language Model (VLM) API key. For example, you could purchase credits for the OpenAI API: https://openai.com/api/
+3) git clone git@github.com:michaelsmitasin/web-watch.git
+4) copy settings.conf.example to settings.conf and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, VLMAPIKEY, FROMADDR, RCPTS. And MAILTO if you want to get error emails.
+5) Populate your list of websites/URLs that you want to analyze (in the below examples, we save them to the file named `testurls`)
+6) Adjust the prompt to suit your needs.
 
 # Example Run
 
