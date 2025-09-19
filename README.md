@@ -26,7 +26,7 @@ go install github.com/sensepost/gowitness@latest
 sudo ln -s ~/go/bin/gowitness /usr/bin/gowitness
 ```
 2) Get a Vision Language Model (VLM) API key. For example, you could purchase credits for the OpenAI API: https://platform.openai.com/settings/organization/billing/overview
-3) git clone git@github.com:michaelsmitasin/web-watch.git
+3) `git clone https://www.github.com/michaelsmitasin/web-watch.git`
 4) copy `settings.conf.example` to `settings.conf` and modify the relevant variables, especially the GOWITNESSCMD, VLMAPIURL, VLMAPIKEY, FROMADDR, RCPTS. And MAILTO if you want to get error emails.
 5) Populate your list of websites/URLs that you want to analyze (in the below examples, we save them to the file named `testurls`)
 6) Adjust `prompt.conf` to suit your needs.
