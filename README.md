@@ -17,7 +17,9 @@ Setup and Installation:
 
 1) This calls fetch-screenshots.sh and analyze-screenshots.sh
 
+```
 ./web-watch.sh -u testurls -p prompt.conf
+```
 
 # Example Test Usage
 
