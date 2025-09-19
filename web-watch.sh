@@ -2,6 +2,8 @@
 
 ### Orchestration script that calls other scripts
 
+SESSIONID="$(date -Iminutes | cut -d"+" -f1)_$(head /dev/random | LC_ALL=C tr -dc A-Za-z0-9 | head -c8)"
+
 ### Load variables from settings.conf
 
 SETTINGSFILE="./settings.conf"
@@ -16,9 +18,9 @@ USAGE(){
 	echo "	-u <url_list>		list of urls to grab screenshots from"
 	echo "	-m <model>		specify Vision Language Model to use for analysis (default: gpt-4o"
 	echo "	-p <promptfile>		prompt file to use"
-	echo "	-S <screenshots_dir>	specify path of screenshots"
+	echo "	-S <screenshots_dir>	specify path of screenshots (default: SCREENSHOTS/<sessionid>)"
 	echo ""
-	echo "Example: $0 -u testurls -S SCREENSHOTS -p prompt.conf"
+	echo "Example: $0 -u testurls -p prompt.conf"
 
 	exit 1
 }
@@ -36,7 +38,7 @@ CHECKDEPENDENCIES(){
 }
 
 FETCHSCREENSHOTS(){
-	$FETCHSCRIPT -u $URLLIST -S $SCREENSHOTDIR
+	$FETCHSCRIPT $VERBOSE -u $URLLIST -S $SCREENSHOTDIR
 }
 
 BUILDSCREENSHOTLIST(){
@@ -44,9 +46,15 @@ BUILDSCREENSHOTLIST(){
 }
 
 ANALYZE(){
+	# Prep results directory
+	mkdir -p "$WORKINGDIR/RESULTS/"
 	for SCREENSHOT in $SCLIST
 	do
-		$ANALYZESCRIPT -m gpt-4o -S $SCREENSHOT -P $PROMPTFILE
+		if [ $VERBOSE ]
+		then
+			echo "Analyzing: $SCREENSHOT"
+		fi
+		$ANALYZESCRIPT -m gpt-4o -S $SCREENSHOT -P $PROMPTFILE >> $WORKINGDIR/RESULTS/$SESSIONID.csv
 	done
 }
 
@@ -66,7 +74,7 @@ do
     while getopts vm:S:u:p: OPTIONS
     do
     case $OPTIONS in
-            v) DOQUIET="";;
+            v) VERBOSE="-v";;
             m) MODEL="$OPTARG";;
             S) SCREENSHOTDIR="$OPTARG";;
             u) URLLIST="$OPTARG";;
@@ -81,8 +89,7 @@ done
 
 if [ -z "$SCREENSHOTDIR" ]
 then
-	echo "Error: must specify -S screenshot directory"
-	exit 1
+	SCREENSHOTDIR="SCREENSHOTS/$SESSIONID"
 fi
 
 if [ -z "$PROMPTFILE" ]
