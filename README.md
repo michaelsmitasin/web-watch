@@ -21,5 +21,5 @@ Setup and Installation:
 ```
 2) Analyze screenshots in ~/web-watch
 ```
-./api-single-test-query.sh -m gpt-4o -S SCREENSHOTS/https---www.smitasin.com-443.jpeg -P prompt.conf -v
+./analyze-screenshot.sh -m gpt-4o -S SCREENSHOTS/https---www.smitasin.com-443.jpeg -P prompt.conf -v
 ```
