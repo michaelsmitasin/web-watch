@@ -106,6 +106,13 @@ then
 	exit 1
 fi
 
+# Check that the specified screenshot is a jpg/jpeg
+if [ -z $( echo "$SCREENSHOT" | grep "\.jpeg$\|\.jpg$") ]
+then
+	echo "Error: must specify single screenshot, jpeg or jpg format"
+	exit 1
+fi
+
 if [ -z "$PROMPTFILE" ]
 then
 	echo "Error: must specify -P promptfile"
